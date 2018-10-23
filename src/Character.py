@@ -10,9 +10,10 @@ class Character(pygame.sprite.Sprite):
         
         self.moves_len = len(moves)
         
-    def _update(self):
+    def update(self):
         return
     
-    def _render(self):
+    def render(self):
         return
+    
     
