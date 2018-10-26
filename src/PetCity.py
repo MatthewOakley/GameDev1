@@ -167,7 +167,7 @@ while not done:
     
     
     
-    if player.get_health() == 0 or thug.get_health() == 0 and game_over == False:
+    if (player.get_health() == 0 or thug.get_health() == 0) and game_over == False:
         game_over = True
         start_time = time.time()
     
