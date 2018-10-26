@@ -111,17 +111,21 @@ while not done:
             action = True
             pos = pygame.mouse.get_pos()
             # within button area
-            if pos[1] >= 450 and pos[1] <= 550:
+            #if pos[1] >= 450 and pos[1] <= 550:
+            if pos[1] in range(450, 551):
                 # punch
-                if pos[0] >= 150 and pos[0]<= 250:
+                #if pos[0] >= 150 and pos[0]<= 250:
+                if pos[0] in range(150, 251):
                     attack = 1
                     print("PUNCH")
                 # special
-                elif pos[0] >= 400 and pos[0]<= 500:
+                #elif pos[0] >= 400 and pos[0]<= 500:
+                elif pos[0] in range(400, 501):
                     attack = 2
                     print("SPECIAL")
                 # counter
-                elif pos[0] >= 650 and pos[0]<= 750:
+                #elif pos[0] >= 650 and pos[0]<= 750:
+                elif pos[0] in range(650, 751):
                     attack = 3
                     print("COUNTER")
         # keyboard input
@@ -185,9 +189,9 @@ while not done:
     combat_bar.draw(screen)
     
     # draw moves text
-    screen.blit(punch_bar,(148,550))
-    screen.blit(special_bar,(388,550))
-    screen.blit(counter_bar,(630,550))
+    screen.blit(punch_bar, (148, 550))
+    screen.blit(special_bar, (388, 550))
+    screen.blit(counter_bar, (630, 550))
     
     # draw health text
     create_health_bars(player.get_health(), 3, 15, 15)
