@@ -6,6 +6,6 @@ All you will need to do is download the PetCity.zip file, unpack it, then up Pet
 
 The controls are as follow: either click your attack option, or press 1/2/3 (corresponds to the order on the bottom of the screen).
 
-Punch beats special, special beats counter, and counter beats punch. The results are tracked in the ______, as well as with the health bars above the characters.
+Punch beats special, special beats counter, and counter beats punch. The results are tracked in the terminal, as well as with the health bars above the characters.
 
 This alpha is showing off the game logic. Sprites, music, more feedback, and (hopefully some) animation is to come!
