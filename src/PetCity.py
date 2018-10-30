@@ -2,8 +2,25 @@
 # Written by Oakley and Evan
 # version 0.5
 # Last modified 10/26/18
-#
-
+# This is the file for the game loop and core of PetCity
+# this handles all of the logic and processing of the game
+# it also includes instructions for how to play
+"""
+INSTRUCTIONS
+Here are the instructions for our game, PetCity.
+We have worked mostly from command line (Oakley is more comfortable there),
+so our project might look a bit different than others.
+PetCity is broken into Python files that reference each other.
+It helps us keep our classes in check.
+=============================================
+The controls are as follow: either click your attack option, or press 1/2/3
+(corresponds to the order on the bottom of the screen).
+Punch beats special, special beats counter, and counter beats punch.
+The results are tracked in the terminal,
+as well as with the health bars above the characters.
+This alpha is showing off the game logic. Sprites, music, more feedback,
+and (hopefully some) animation is to come!
+"""
 
 import pygame
 from Character import *
