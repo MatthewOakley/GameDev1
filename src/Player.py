@@ -1,4 +1,11 @@
+# Player.py
+# Written by Matthew Oakley and Evan Mastriano
+# version 0.8
+# Last modified 10/30/18
+# This is for the Player class a player is what the user's
+# sprite will be. It will keep track of points and other stats.
 from Character import *
+
 
 class Player(Character):
     

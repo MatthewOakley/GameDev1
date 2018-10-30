@@ -3,11 +3,11 @@
 # version 0.5
 # Last modified 10/26/18
 #
+
+
 import pygame
-import os
-import datetime
-import time
 from Character import *
+import time
 from Block import *
 from Player import *
 from Thug import *
@@ -73,8 +73,11 @@ combat_bar.add(punch)
 combat_bar.add(special)
 combat_bar.add(counter)
 
-# The health bars
+
 def create_health_bars(health, max_health, x_pos, y_pos):
+    """
+    The health bars
+    """
     i = 0
     shift = 0
     while i < health:
@@ -85,6 +88,8 @@ def create_health_bars(health, max_health, x_pos, y_pos):
         screen.blit(empty_health, (x_pos + shift, y_pos))
         shift += 20
         i += 1
+
+
 # the timer
 
 """
@@ -92,12 +97,8 @@ Build the visual actions
 """
 # the moves over the characters
 punch_text = action_font.render('PUNCH', False, (0, 0, 0))
-special_bar = action_font.render('SPECIAL', False, (0, 0, 0))
-counter_bar = action_font.render('COUNTER', False, (0, 0, 0))
-
-
-
-
+# special_bar = action_font.render('SPECIAL', False, (0, 0, 0))
+# counter_bar = action_font.render('COUNTER', False, (0, 0, 0))
 
 # the game loop
 while not done:
@@ -107,70 +108,57 @@ while not done:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             done = True
-        elif event.type == pygame.MOUSEBUTTONUP:
+        elif event.type == pygame.MOUSEBUTTONUP and not game_over:
             action = True
             pos = pygame.mouse.get_pos()
             # within button area
-            #if pos[1] >= 450 and pos[1] <= 550:
             if pos[1] in range(450, 551):
                 # punch
-                #if pos[0] >= 150 and pos[0]<= 250:
                 if pos[0] in range(150, 251):
                     attack = 1
-                    print("PUNCH")
                 # special
-                #elif pos[0] >= 400 and pos[0]<= 500:
                 elif pos[0] in range(400, 501):
                     attack = 2
-                    print("SPECIAL")
                 # counter
-                #elif pos[0] >= 650 and pos[0]<= 750:
                 elif pos[0] in range(650, 751):
                     attack = 3
-                    print("COUNTER")
         # keyboard input
-        elif event.type == pygame.KEYDOWN:
+        elif event.type == pygame.KEYDOWN and not game_over:
             action = True
             if event.key == pygame.K_1:
                 attack = 1
-                print("PUNCH")
             elif event.key == pygame.K_2:
                 attack = 2
-                print("SPECIAL")
             elif event.key == pygame.K_3:
                 attack = 3
-                print("COUNTER")
                 
     # player took an action
     if action:
         enemy_attack = thug.pick_move()
-        print("Enemy:", enemy_attack)
         if attack == enemy_attack:
             print("DRAW")
         elif attack == 1 and enemy_attack == 2:
-            print("Player beats enemy: P v S")
+            print("Player beats enemy: Punch v Special")
             thug.update_health(-1)
         elif attack == 1 and enemy_attack == 3:
-            print("Enemy beats player: C v P")
+            print("Enemy beats player: Counter v Punch")
             player.update_health(-1)
         elif attack == 2 and enemy_attack == 1:
-            print("Enemy beats player: P v S")
+            print("Enemy beats player: Punch v Special")
             player.update_health(-1)
         elif attack == 2 and enemy_attack == 3:
-            print("Player beats enemy: S v C")
+            print("Player beats enemy: Special v Counter")
             thug.update_health(-1)
         elif attack == 3 and enemy_attack == 1:
-            print("Player beats enemy: C v P")
+            print("Player beats enemy: Counter v Punch")
             thug.update_health(-1)
         elif attack == 3 and enemy_attack == 2:
-            print("Enemy beats player: S v C")
+            print("Enemy beats player: Special v Counter")
             player.update_health(-1)
     
     # Clear the screen
-    screen.fill(WHITE)   
-    
-    
-    
+    screen.fill(WHITE)
+
     if (player.get_health() == 0 or thug.get_health() == 0) and game_over == False:
         game_over = True
         start_time = time.time()
@@ -180,7 +168,6 @@ while not done:
             screen.blit(game_over_text, (300, 100))
         else:
             done = True
-    
 
     # Draw all the spites
     all_sprites.draw(screen)
@@ -201,5 +188,5 @@ while not done:
     pygame.display.flip()
 
     fps.tick(60)
-    
+
 pygame.quit()
