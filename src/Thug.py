@@ -1,6 +1,12 @@
-import pygame
+# Thug.py
+# Written by Matthew Oakley and Evan Mastriano
+# version 0.8
+# Last modified 10/30/18
+# This is for the Thug class. A thug is a subclass of Character
+# a thug will be an enemy in the game
 import random
 from Character import *
+
 
 class Thug(Character):
     
@@ -20,5 +26,3 @@ class Thug(Character):
         
     def render(self):
         return
-    
-    
