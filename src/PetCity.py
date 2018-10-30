@@ -22,9 +22,8 @@ This alpha is showing off the game logic. Sprites, music, more feedback,
 and (hopefully some) animation is to come!
 """
 
-import pygame
-from Character import *
 import time
+
 from Block import *
 from Player import *
 from Thug import *
@@ -175,8 +174,7 @@ while not done:
     
     # Clear the screen
     screen.fill(WHITE)
-
-    if (player.get_health() == 0 or thug.get_health() == 0) and game_over == False:
+    if (player.get_health() == 0 or thug.get_health() == 0) and not game_over:
         game_over = True
         start_time = time.time()
     
